@@ -15,11 +15,13 @@ def to_camel_case(underscore_str):
     if underscore_str.find('_') == -1:
         return underscore_str
 
-    underscore_str = underscore_str.lower()
     temp = underscore_str.split('_')
 
     for idx, val in enumerate(temp):
         temp[idx] = val.capitalize()
+
+    if len(''.join(temp)) == 0:
+        return ''
 
     camelcase_str = ''.join(temp)[0].lower() + ''.join(temp)[1:]
 #    camelcase_str[0] = camelcase_str[0].lower()
